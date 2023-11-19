@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class FinishScript : MonoBehaviour
 {
-    public int LevelCount;
-
-    private void LevelLoad(int LevelCount)
+    private void LobbyLoad()
     {
-        SceneManager.LoadScene($"Level_{LevelCount}");
+        SceneManager.LoadScene("Lobby");
+        
     }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            LevelLoad(LevelCount);
+            LobbyLoad();
         }
     }
-    
-    }
+}
