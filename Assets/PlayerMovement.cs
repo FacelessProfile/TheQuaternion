@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -73,6 +74,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Bounds"))
         {
             ResetPosition();
+        }
+        if (other.CompareTag("FinishLine")) //когда игрок заходит в финиш лайн на уровне то его тепает в лобби хуета механика конечно но не ебу как это сделать в финиш скрипте, додумай пэжэ
+        {
+            SceneManager.LoadScene("Lobby");
         }
     }
 
