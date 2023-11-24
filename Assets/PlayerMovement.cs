@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
@@ -8,15 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float maxHorizontalSpeed = 8f; // Установите значение максимальной горизонтальной скорости
     private bool isGrounded;
     private Rigidbody2D rb;
+    private SaveManager saveManager;
+    public List<string> Inventory= new List<string>() { }; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        if (rb == null)
-        {
-            Debug.LogError("Rigidbody2D component is missing on the player object!");
-        }
+        saveManager = GetComponent<SaveManager>();
     }
 
     void Update()
@@ -42,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
+        
+        
 
         // Зафиксируем угол поворота куба (player)
         transform.rotation = Quaternion.identity;
@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.CompareTag("FinishLine")) //когда игрок заходит в финиш лайн на уровне то его тепает в лобби хуета механика конечно но не ебу как это сделать в финиш скрипте, додумай пэжэ
         {
+            saveManager.SaveData("Level_1", "Passed");
             SceneManager.LoadScene("Lobby");
         }
     }
@@ -93,5 +94,9 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position = new Vector2(0f, 0f);
         rb.velocity = Vector2.zero;
+    }
+    public void PickUp(string Item)
+    {
+        Inventory.Add(Item);
     }
 }

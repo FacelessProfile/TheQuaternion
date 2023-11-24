@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 710726424}
   - component: {fileID: 710726426}
   - component: {fileID: 710726425}
+  - component: {fileID: 710726428}
   - component: {fileID: 710726427}
   m_Layer: 0
   m_Name: Level_1
@@ -420,7 +421,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2536ebdd77385d5438cfda2739e94a54, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -465,6 +466,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelCount: 1
+--- !u!114 &710726428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710726423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481ba3d7b59c9ff4b9e500c1df3b64d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &829859671
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1009,7 @@ GameObject:
   - component: {fileID: 1663386519}
   - component: {fileID: 1663386518}
   - component: {fileID: 1663386520}
+  - component: {fileID: 1663386522}
   - component: {fileID: 1663386521}
   m_Layer: 0
   m_Name: player
@@ -1082,3 +1096,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1663386522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663386517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481ba3d7b59c9ff4b9e500c1df3b64d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

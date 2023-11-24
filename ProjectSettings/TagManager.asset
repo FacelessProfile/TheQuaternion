@@ -9,6 +9,7 @@ TagManager:
   - Bounds
   - CanvasCamera
   - FinishLine
+  - Box
   layers:
   - Default
   - TransparentFX
