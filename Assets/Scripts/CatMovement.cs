@@ -10,6 +10,8 @@ public class CatMovement : MonoBehaviour
     public float maxHorizontalSpeed = 8f;
     private bool isGrounded;
     private bool isHold = true;
+    bool isOn = true;
+
     private Vector2 movement;
     private Rigidbody2D rb;
 
@@ -111,7 +113,6 @@ public class CatMovement : MonoBehaviour
 
     private void TryPickUpObject(InputAction.CallbackContext context)
     {
-        bool isOn = true;
         // Рейкаст (луч) для определения объекта перед игроком
         if (isOn)
         {
