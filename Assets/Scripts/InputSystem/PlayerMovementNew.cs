@@ -38,7 +38,7 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""MovingHorisontal"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""abb2a030-89c6-4785-8a54-ff59d38b7b3d"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -89,6 +89,15 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeverActivate"",
+                    ""type"": ""Button"",
+                    ""id"": ""9dc08f62-2ca0-4e33-8375-1c1091abfa36"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -107,6 +116,17 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""19ffbc8e-bb71-4ad2-b6cd-f384df7af230"",
                     ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80ee1834-8d74-45ed-8e43-9a979c8c96e9"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -170,6 +190,61 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""21b02f9c-4517-47a3-a384-4846c77c9bfb"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f5008667-0332-4642-9060-8594af0da9c1"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""9dea9714-109b-4e1f-b645-03825ba5dbcc"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7c77ca38-044f-4c3f-b35a-225e84b3b282"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8c39e813-b650-4d13-bc98-ef545291d25e"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""cf9c5a7c-d65b-4e96-84db-5b1ad8230f4f"",
                     ""path"": ""<Keyboard>/f"",
@@ -212,6 +287,17 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""action"": ""DeleteProgress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f802a623-71fc-404a-8611-7b254ffd118e"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverActivate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +313,7 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         m_PlayerActionsInput_HoldObject = m_PlayerActionsInput.FindAction("HoldObject", throwIfNotFound: true);
         m_PlayerActionsInput_ToLobby = m_PlayerActionsInput.FindAction("ToLobby", throwIfNotFound: true);
         m_PlayerActionsInput_DeleteProgress = m_PlayerActionsInput.FindAction("DeleteProgress", throwIfNotFound: true);
+        m_PlayerActionsInput_LeverActivate = m_PlayerActionsInput.FindAction("LeverActivate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +382,7 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionsInput_HoldObject;
     private readonly InputAction m_PlayerActionsInput_ToLobby;
     private readonly InputAction m_PlayerActionsInput_DeleteProgress;
+    private readonly InputAction m_PlayerActionsInput_LeverActivate;
     public struct PlayerActionsInputActions
     {
         private @PlayerMovementNew m_Wrapper;
@@ -306,6 +394,7 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         public InputAction @HoldObject => m_Wrapper.m_PlayerActionsInput_HoldObject;
         public InputAction @ToLobby => m_Wrapper.m_PlayerActionsInput_ToLobby;
         public InputAction @DeleteProgress => m_Wrapper.m_PlayerActionsInput_DeleteProgress;
+        public InputAction @LeverActivate => m_Wrapper.m_PlayerActionsInput_LeverActivate;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionsInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -336,6 +425,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @DeleteProgress.started += instance.OnDeleteProgress;
             @DeleteProgress.performed += instance.OnDeleteProgress;
             @DeleteProgress.canceled += instance.OnDeleteProgress;
+            @LeverActivate.started += instance.OnLeverActivate;
+            @LeverActivate.performed += instance.OnLeverActivate;
+            @LeverActivate.canceled += instance.OnLeverActivate;
         }
 
         private void UnregisterCallbacks(IPlayerActionsInputActions instance)
@@ -361,6 +453,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @DeleteProgress.started -= instance.OnDeleteProgress;
             @DeleteProgress.performed -= instance.OnDeleteProgress;
             @DeleteProgress.canceled -= instance.OnDeleteProgress;
+            @LeverActivate.started -= instance.OnLeverActivate;
+            @LeverActivate.performed -= instance.OnLeverActivate;
+            @LeverActivate.canceled -= instance.OnLeverActivate;
         }
 
         public void RemoveCallbacks(IPlayerActionsInputActions instance)
@@ -387,5 +482,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         void OnHoldObject(InputAction.CallbackContext context);
         void OnToLobby(InputAction.CallbackContext context);
         void OnDeleteProgress(InputAction.CallbackContext context);
+        void OnLeverActivate(InputAction.CallbackContext context);
     }
 }

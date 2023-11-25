@@ -78,7 +78,7 @@ public class CatMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Untagged"))
+        if (other.CompareTag("Ground"))
         {
             isGrounded = true;
         }
