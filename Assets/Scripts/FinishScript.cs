@@ -15,7 +15,7 @@ public class FinishScript : MonoBehaviour
     void Start()
     {
         initialPosition = liftRigidbody.position;
-        targetPosition = initialPosition - new Vector2(0f, 5f); // Перемещение на 5 единиц вниз
+        targetPosition = initialPosition - new Vector2(0f, 5f);
     }
 
 

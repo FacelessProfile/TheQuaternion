@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickuper : MonoBehaviour
+public class UpgradePickuper : MonoBehaviour
 {
-    public PlayerMovement ScriptReference;
+    public CatMovement ScriptReference;
+
     void Start()
     {
  
     }
+
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player")  && Input.GetKey(KeyCode.F))
+        if (other.CompareTag("Player"))
         {
-            ScriptReference.PickUp(gameObject.name);
+            ScriptReference.PickUpUpgrade(gameObject.name);
             Destroy(gameObject);
         }
-
     }
 }

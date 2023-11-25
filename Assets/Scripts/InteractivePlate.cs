@@ -8,7 +8,7 @@ public class InteractivePlate : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(StateFlag);
+
     }
 
     void OnTriggerStay2D(Collider2D other)
