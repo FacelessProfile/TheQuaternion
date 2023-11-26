@@ -21,6 +21,7 @@ public class Lever : MonoBehaviour
 
     void Start()
     {
+        
         playerMovement = new PlayerMovementNew();
         playerMovement.ABOBA.Lever.started += LeverState;
         playerMovement.ABOBA.Enable();
