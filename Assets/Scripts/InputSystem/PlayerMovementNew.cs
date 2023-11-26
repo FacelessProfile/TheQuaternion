@@ -300,6 +300,45 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ABOBA"",
+            ""id"": ""893f74a7-6bf2-4519-a780-b9aa3314876c"",
+            ""actions"": [
+                {
+                    ""name"": ""Lever"",
+                    ""type"": ""Value"",
+                    ""id"": ""a6ff62c0-a36d-40f9-b174-60c41e4c1364"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""045fd78b-61e6-4d6e-8783-96b0e8eb5f20"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lever"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f557820c-c485-47c2-810c-c13d1481a59d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lever"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -314,6 +353,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         m_PlayerActionsInput_ToLobby = m_PlayerActionsInput.FindAction("ToLobby", throwIfNotFound: true);
         m_PlayerActionsInput_DeleteProgress = m_PlayerActionsInput.FindAction("DeleteProgress", throwIfNotFound: true);
         m_PlayerActionsInput_LeverActivate = m_PlayerActionsInput.FindAction("LeverActivate", throwIfNotFound: true);
+        // ABOBA
+        m_ABOBA = asset.FindActionMap("ABOBA", throwIfNotFound: true);
+        m_ABOBA_Lever = m_ABOBA.FindAction("Lever", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -473,6 +515,52 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActionsInputActions @PlayerActionsInput => new PlayerActionsInputActions(this);
+
+    // ABOBA
+    private readonly InputActionMap m_ABOBA;
+    private List<IABOBAActions> m_ABOBAActionsCallbackInterfaces = new List<IABOBAActions>();
+    private readonly InputAction m_ABOBA_Lever;
+    public struct ABOBAActions
+    {
+        private @PlayerMovementNew m_Wrapper;
+        public ABOBAActions(@PlayerMovementNew wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Lever => m_Wrapper.m_ABOBA_Lever;
+        public InputActionMap Get() { return m_Wrapper.m_ABOBA; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ABOBAActions set) { return set.Get(); }
+        public void AddCallbacks(IABOBAActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ABOBAActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ABOBAActionsCallbackInterfaces.Add(instance);
+            @Lever.started += instance.OnLever;
+            @Lever.performed += instance.OnLever;
+            @Lever.canceled += instance.OnLever;
+        }
+
+        private void UnregisterCallbacks(IABOBAActions instance)
+        {
+            @Lever.started -= instance.OnLever;
+            @Lever.performed -= instance.OnLever;
+            @Lever.canceled -= instance.OnLever;
+        }
+
+        public void RemoveCallbacks(IABOBAActions instance)
+        {
+            if (m_Wrapper.m_ABOBAActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IABOBAActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ABOBAActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ABOBAActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ABOBAActions @ABOBA => new ABOBAActions(this);
     public interface IPlayerActionsInputActions
     {
         void OnDebugMessage(InputAction.CallbackContext context);
@@ -483,5 +571,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         void OnToLobby(InputAction.CallbackContext context);
         void OnDeleteProgress(InputAction.CallbackContext context);
         void OnLeverActivate(InputAction.CallbackContext context);
+    }
+    public interface IABOBAActions
+    {
+        void OnLever(InputAction.CallbackContext context);
     }
 }

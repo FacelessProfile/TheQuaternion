@@ -7,16 +7,23 @@ using UnityEngine.UI;
 public class Lever : MonoBehaviour
 {
     public bool StateFlag;
-    public bool AlreadyActive;
+    public bool Inside;
     public GameObject textPrefab;
     private GameObject newText;
+    public float heightAbove = 15f;
+    private Vector2 newPosition;
+    private float canvasScale = 36f;
+
+
+
 
     private PlayerMovementNew playerMovement;
-    
 
     void Start()
     {
-        playerMovement.PlayerActionsInput.LeverActivate.started += LeverState;
+        playerMovement = new PlayerMovementNew();
+        playerMovement.ABOBA.Lever.started += LeverState;
+        playerMovement.ABOBA.Enable();
 
     }
 
@@ -25,7 +32,11 @@ public class Lever : MonoBehaviour
         if (other.CompareTag("Player") && newText == null)
         {
             Debug.Log("Instantiating text");
-            newText = Instantiate(textPrefab, transform.position, Quaternion.identity);
+            Vector2 newPosition = new Vector2(transform.position.x * canvasScale, transform.position.y * canvasScale + heightAbove* canvasScale);
+            Canvas canvas = FindObjectOfType<Canvas>();
+            newText = Instantiate(textPrefab, newPosition, Quaternion.identity);
+            newText.transform.SetParent(canvas.transform, false);
+            Inside = true;
         }
     }
 
@@ -38,28 +49,24 @@ public class Lever : MonoBehaviour
                 Destroy(newText);
                 newText = null;
             }
+            Inside = false;
         }
     }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-    }
-    
+  
+
     void LeverState(InputAction.CallbackContext context)
     {
-
-            if (!AlreadyActive)
-            {
-                StateFlag = true;
-                AlreadyActive = true;
-            }
-
-            if (AlreadyActive)
-            {
-                StateFlag = false;
-                AlreadyActive = true;
-            }
-        
+        Debug.Log("EBAT");
+        if (!StateFlag && Inside)
+        {
+            StateFlag = true;
+        }
+        else if (Inside)
+        {
+            StateFlag = false;
+        }
     }
 }
+
 

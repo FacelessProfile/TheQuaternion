@@ -29,7 +29,7 @@ public class CatMovement : MonoBehaviour
         playerMovement.PlayerActionsInput.MovingHorisontal.performed += Moving;
         playerMovement.PlayerActionsInput.MovingHorisontal.canceled += StopMoving;
         playerMovement.PlayerActionsInput.Jump.started += Jump;
-        playerMovement.PlayerActionsInput.PickObject.performed += TryPickUpObject;
+       // playerMovement.PlayerActionsInput.PickObject.performed += TryPickUpObject;
         playerMovement.PlayerActionsInput.ToLobby.canceled += ToLobby;
         playerMovement.PlayerActionsInput.DeleteProgress.canceled += DeleteProgress;
         playerMovement.PlayerActionsInput.Enable();
@@ -44,7 +44,7 @@ public class CatMovement : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(movement * speed * Time.fixedDeltaTime);
-        if (isHold) HoldObject();
+        //if (isHold) HoldObject();
     }
 
     void Update()
@@ -111,9 +111,9 @@ public class CatMovement : MonoBehaviour
         Inventory.Add(Item);
     }
 
-    private void TryPickUpObject(InputAction.CallbackContext context)
+    /* private void TryPickUpObject(InputAction.CallbackContext context)
     {
-        // Рейкаст (луч) для определения объекта перед игроком
+        Рейкаст (луч) для определения объекта перед игроком
         if (isOn)
         {
             Debug.Log("взял");
@@ -149,7 +149,7 @@ public class CatMovement : MonoBehaviour
             Vector3 holdPosition = transform.position + transform.forward * 2f;
             itemPickuper.transform.position = holdPosition;
         }
-    }
+    } */
 
     private void ToLobby(InputAction.CallbackContext context)
     {
