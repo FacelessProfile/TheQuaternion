@@ -313,6 +313,15 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RobotExit"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9608451-93b5-4422-a499-8fa2d7cb727f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -337,6 +346,163 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""action"": ""Lever"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+<<<<<<< Updated upstream
+=======
+                },
+                {
+                    ""name"": ""MovingHorisontal"",
+                    ""id"": ""4a1cfef0-d8d5-4aa7-bf08-7f9bdfc973bf"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""cedf2d7f-0ba8-4fb9-a5eb-6eb66e6b75eb"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""36fe1ea7-6304-40d6-b2d9-53bd4a8da031"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""eee5d20e-643a-4026-956f-cb72905afe32"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6fee641c-64fe-4cec-b5fb-6a2f96bf6bf7"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""39156216-4828-4d5c-bf8f-533294973685"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a4b7993b-4a63-4ef1-a8f2-28e859d286dd"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""0c9ed4ad-d70d-4b7b-9038-5f38aeeb92dc"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""88727027-4d75-41fe-9f33-e2135b6a62b5"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""73f8bc74-1640-4861-b198-6b569b9eb045"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovingHorisontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a130b2a7-6751-4a97-b278-dfac40022077"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdd4bdaa-e344-4f72-82e4-125d47de7de1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae3b59cb-b935-4043-9aa6-3c50417be2db"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RobotExit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6cbd0dfc-0159-49f4-ab81-4d5a6857f9f8"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RobotExit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+>>>>>>> Stashed changes
                 }
             ]
         }
@@ -352,10 +518,22 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         m_PlayerActionsInput_HoldObject = m_PlayerActionsInput.FindAction("HoldObject", throwIfNotFound: true);
         m_PlayerActionsInput_ToLobby = m_PlayerActionsInput.FindAction("ToLobby", throwIfNotFound: true);
         m_PlayerActionsInput_DeleteProgress = m_PlayerActionsInput.FindAction("DeleteProgress", throwIfNotFound: true);
+<<<<<<< Updated upstream
         m_PlayerActionsInput_LeverActivate = m_PlayerActionsInput.FindAction("LeverActivate", throwIfNotFound: true);
         // ABOBA
         m_ABOBA = asset.FindActionMap("ABOBA", throwIfNotFound: true);
         m_ABOBA_Lever = m_ABOBA.FindAction("Lever", throwIfNotFound: true);
+=======
+        m_PlayerActionsInput_SitInRobot = m_PlayerActionsInput.FindAction("SitInRobot", throwIfNotFound: true);
+        // AT_ATControl
+        m_AT_ATControl = asset.FindActionMap("AT_ATControl", throwIfNotFound: true);
+        m_AT_ATControl_MovingHorisontal = m_AT_ATControl.FindAction("MovingHorisontal", throwIfNotFound: true);
+        m_AT_ATControl_Jump = m_AT_ATControl.FindAction("Jump", throwIfNotFound: true);
+        m_AT_ATControl_HoldObject = m_AT_ATControl.FindAction("HoldObject", throwIfNotFound: true);
+        m_AT_ATControl_PickObject = m_AT_ATControl.FindAction("PickObject", throwIfNotFound: true);
+        m_AT_ATControl_Lever = m_AT_ATControl.FindAction("Lever", throwIfNotFound: true);
+        m_AT_ATControl_RobotExit = m_AT_ATControl.FindAction("RobotExit", throwIfNotFound: true);
+>>>>>>> Stashed changes
     }
 
     public void Dispose()
@@ -516,6 +694,7 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
     }
     public PlayerActionsInputActions @PlayerActionsInput => new PlayerActionsInputActions(this);
 
+<<<<<<< Updated upstream
     // ABOBA
     private readonly InputActionMap m_ABOBA;
     private List<IABOBAActions> m_ABOBAActionsCallbackInterfaces = new List<IABOBAActions>();
@@ -526,6 +705,28 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         public ABOBAActions(@PlayerMovementNew wrapper) { m_Wrapper = wrapper; }
         public InputAction @Lever => m_Wrapper.m_ABOBA_Lever;
         public InputActionMap Get() { return m_Wrapper.m_ABOBA; }
+=======
+    // AT_ATControl
+    private readonly InputActionMap m_AT_ATControl;
+    private List<IAT_ATControlActions> m_AT_ATControlActionsCallbackInterfaces = new List<IAT_ATControlActions>();
+    private readonly InputAction m_AT_ATControl_MovingHorisontal;
+    private readonly InputAction m_AT_ATControl_Jump;
+    private readonly InputAction m_AT_ATControl_HoldObject;
+    private readonly InputAction m_AT_ATControl_PickObject;
+    private readonly InputAction m_AT_ATControl_Lever;
+    private readonly InputAction m_AT_ATControl_RobotExit;
+    public struct AT_ATControlActions
+    {
+        private @PlayerMovementNew m_Wrapper;
+        public AT_ATControlActions(@PlayerMovementNew wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MovingHorisontal => m_Wrapper.m_AT_ATControl_MovingHorisontal;
+        public InputAction @Jump => m_Wrapper.m_AT_ATControl_Jump;
+        public InputAction @HoldObject => m_Wrapper.m_AT_ATControl_HoldObject;
+        public InputAction @PickObject => m_Wrapper.m_AT_ATControl_PickObject;
+        public InputAction @Lever => m_Wrapper.m_AT_ATControl_Lever;
+        public InputAction @RobotExit => m_Wrapper.m_AT_ATControl_RobotExit;
+        public InputActionMap Get() { return m_Wrapper.m_AT_ATControl; }
+>>>>>>> Stashed changes
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
@@ -537,6 +738,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @Lever.started += instance.OnLever;
             @Lever.performed += instance.OnLever;
             @Lever.canceled += instance.OnLever;
+            @RobotExit.started += instance.OnRobotExit;
+            @RobotExit.performed += instance.OnRobotExit;
+            @RobotExit.canceled += instance.OnRobotExit;
         }
 
         private void UnregisterCallbacks(IABOBAActions instance)
@@ -544,6 +748,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @Lever.started -= instance.OnLever;
             @Lever.performed -= instance.OnLever;
             @Lever.canceled -= instance.OnLever;
+            @RobotExit.started -= instance.OnRobotExit;
+            @RobotExit.performed -= instance.OnRobotExit;
+            @RobotExit.canceled -= instance.OnRobotExit;
         }
 
         public void RemoveCallbacks(IABOBAActions instance)
@@ -575,5 +782,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
     public interface IABOBAActions
     {
         void OnLever(InputAction.CallbackContext context);
+        void OnRobotExit(InputAction.CallbackContext context);
     }
 }

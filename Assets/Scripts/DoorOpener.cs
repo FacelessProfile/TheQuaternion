@@ -27,6 +27,16 @@ public class DoorOpener : MonoBehaviour
         {
             State = lever.StateFlag;
         }
+            if (lever != null && State && !InMove)
+            {
+                Debug.Log("BimBim");
+                MoveDoor();
+                InMove = true;
+            }
+            else
+            {
+                Debug.Log("Ne BimBim");
+            }
     }
 
     void MoveDoor()
@@ -48,20 +58,10 @@ public class DoorOpener : MonoBehaviour
         DoorRigidbody.position = targetPosition;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /*void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (lever != null && State && !InMove)
-            {
-                Debug.Log("BimBim");
-                MoveDoor();
-                InMove = true;
-            }
-            else
-            {
-                Debug.Log("Ne BimBim");
-            }
         }
-    }
+    }*/
 }

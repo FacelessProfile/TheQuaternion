@@ -9,13 +9,20 @@ public class CatMovement : MonoBehaviour
     public float jumpForce = 550f;
     public float maxHorizontalSpeed = 8f;
     private bool isGrounded;
+<<<<<<< Updated upstream
     private bool isHold = true;
     bool isOn = true;
+=======
+  
+    public GameObject AT_AT;
+    public GameObject Camera;
+>>>>>>> Stashed changes
 
     private Vector2 movement;
+    public Vector3 originalScale;
     private Rigidbody2D rb;
 
-    private PlayerMovementNew playerMovement;
+    public PlayerMovementNew playerMovement;
     public LevelManager levelManager;
     private SaveManager saveManager;
     private ItemPickuper itemPickuper;
@@ -36,6 +43,13 @@ public class CatMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         saveManager = GetComponent<SaveManager>();
+<<<<<<< Updated upstream
+=======
+
+        At.catInAT = false;
+
+        this.originalScale = gameObject.transform.localScale;
+>>>>>>> Stashed changes
     }
     void PrintDebugMessage(InputAction.CallbackContext context)
     {
@@ -54,6 +68,7 @@ public class CatMovement : MonoBehaviour
 
     void Moving(InputAction.CallbackContext context)
     {
+        Debug.Log("Moving");
         if (rb == null) return;
         movement = context.ReadValue<Vector2>();
         
@@ -116,6 +131,7 @@ public class CatMovement : MonoBehaviour
         Рейкаст (луч) для определения объекта перед игроком
         if (isOn)
         {
+<<<<<<< Updated upstream
             Debug.Log("взял");
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
@@ -138,6 +154,15 @@ public class CatMovement : MonoBehaviour
                 itemPickuper.Release();
                 itemPickuper = null;
             }
+=======
+            At.catInAT = true;
+            playerMovement.PlayerActionsInput.Disable();
+            transform.SetParent(AT_AT.transform, false);
+            Camera.transform.SetParent(AT_AT.transform, false);
+            gameObject.SetActive(false);
+            At.playerMovement.AT_ATControl.Enable();
+            At.catInAT = true;
+>>>>>>> Stashed changes
         }
     }
 

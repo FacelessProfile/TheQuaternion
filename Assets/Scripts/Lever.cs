@@ -26,6 +26,11 @@ public class Lever : MonoBehaviour
         playerMovement.ABOBA.Lever.started += LeverState;
         playerMovement.ABOBA.Enable();
 
+<<<<<<< Updated upstream
+=======
+        At = FindObjectOfType<AT_ATMovement>();
+        
+>>>>>>> Stashed changes
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -38,6 +43,10 @@ public class Lever : MonoBehaviour
             newText = Instantiate(textPrefab, newPosition, Quaternion.identity);
             newText.transform.SetParent(canvas.transform, false);
             Inside = true;
+            if (At.inside)
+            {
+                playerMovement.AT_ATControl.Enable();
+            }
         }
     }
 
