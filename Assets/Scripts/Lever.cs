@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,35 +18,32 @@ public class Lever : MonoBehaviour
 
 
     private PlayerMovementNew playerMovement;
+    private AT_ATMovement At;
+
 
     void Start()
     {
-        
         playerMovement = new PlayerMovementNew();
-        playerMovement.ABOBA.Lever.started += LeverState;
-        playerMovement.ABOBA.Enable();
+        playerMovement.AT_ATControl.Lever.started += LeverState;
 
-<<<<<<< Updated upstream
-=======
         At = FindObjectOfType<AT_ATMovement>();
-        
->>>>>>> Stashed changes
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && newText == null)
+        if (other.CompareTag("Player") && newText == null && At.catInAT)
         {
-            Debug.Log("Instantiating text");
+            Debug.Log("ገሮንጅግይ3ፒፍዉፒብ");
             Vector2 newPosition = new Vector2(transform.position.x * canvasScale, transform.position.y * canvasScale + heightAbove* canvasScale);
             Canvas canvas = FindObjectOfType<Canvas>();
             newText = Instantiate(textPrefab, newPosition, Quaternion.identity);
             newText.transform.SetParent(canvas.transform, false);
             Inside = true;
-            if (At.inside)
-            {
-                playerMovement.AT_ATControl.Enable();
-            }
+        if (At.inside)
+        {
+            playerMovement.AT_ATControl.Enable();
+        }
         }
     }
 
@@ -67,7 +64,7 @@ public class Lever : MonoBehaviour
 
     void LeverState(InputAction.CallbackContext context)
     {
-        Debug.Log("EBAT");
+        Debug.Log("ርትግ0[ኢጅት34ቅ  ኢግህፕርሁ");
         if (!StateFlag && Inside)
         {
             StateFlag = true;

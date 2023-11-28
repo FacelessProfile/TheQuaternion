@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-
 public class AT_ATMovement : MonoBehaviour
 {
     public float Offset = 1f;
@@ -14,6 +12,7 @@ public class AT_ATMovement : MonoBehaviour
     public bool catInAT = false;
     public bool inside;
 
+
     public PlayerMovementNew playerMovement;
     private SaveManager saveManager;
     private CatMovement catMovement;
@@ -21,10 +20,10 @@ public class AT_ATMovement : MonoBehaviour
 
     private Vector2 movement;
     private Vector2 CurrentPos;
+    public Vector3 originalScale;
     private Rigidbody2D rb;
 
     public GameObject Player;
-    
 
     void Start()
     {
@@ -39,17 +38,15 @@ public class AT_ATMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
+        this.originalScale = gameObject.transform.localScale;
     }
-
     void FixedUpdate()
     {
         transform.Translate(movement * speed * Time.fixedDeltaTime);
         Debug.Log(catInAT);
     }
-
     void Update()
     {
-
     }
     void Moving(InputAction.CallbackContext context)
     {
@@ -57,18 +54,15 @@ public class AT_ATMovement : MonoBehaviour
         movement = context.ReadValue<Vector2>();
         Debug.Log(playerMovement);
     }
-
     void StopMoving(InputAction.CallbackContext context)
     {
         movement = Vector2.zero;
     }
-
     void Jump(InputAction.CallbackContext context)
     {
         if (rb == null) return;
         if (isGrounded)
         {
-
             Debug.Log(playerMovement);
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -90,25 +84,22 @@ public class AT_ATMovement : MonoBehaviour
             mainCamera.transform.SetParent(Player.transform, false);
         }
     }
-
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player") || catInAT) inside = true;
         else inside = false;
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Ground")) isGrounded = true;
         if (other.CompareTag("Bounds")) ResetPosition();
         if (other.CompareTag("FinishLine"))
         {
-            
+
             saveManager.SaveData($"Level_{levelManager.levelCount}", "Passed");
             levelManager.LevelLoad(++levelManager.levelCount);
         }
     }
-
     void ResetPosition()
     {
         transform.position = new Vector2(0f, 0f);

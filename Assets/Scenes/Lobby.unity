@@ -1728,6 +1728,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8220012506387164721, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220012506387164721, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220012506387164721, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220012506387164878, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220012506387164878, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: orthographic size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8220012506742609188, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
       propertyPath: m_Name
       value: Player

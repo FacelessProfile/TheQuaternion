@@ -55,24 +55,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PickObject"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""883568b5-7a87-45cc-9fff-b5b631cb7545"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""HoldObject"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""7ffe8bf3-64c1-4f6f-9276-1e53145dd9ad"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold"",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""ToLobby"",
                     ""type"": ""Button"",
                     ""id"": ""764b9a33-6005-44dc-bebc-5dde34baa0d8"",
@@ -91,9 +73,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""LeverActivate"",
+                    ""name"": ""SitInRobot"",
                     ""type"": ""Button"",
-                    ""id"": ""9dc08f62-2ca0-4e33-8375-1c1091abfa36"",
+                    ""id"": ""48b21e34-57ca-4a34-860d-e56515a880fa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -246,28 +228,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cf9c5a7c-d65b-4e96-84db-5b1ad8230f4f"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PickObject"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3f5cb461-d88e-4ea1-9829-6b8351eec1cc"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HoldObject"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e077cb13-f23f-493b-b8af-110507868004"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -290,25 +250,61 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f802a623-71fc-404a-8611-7b254ffd118e"",
-                    ""path"": ""<Keyboard>/g"",
+                    ""id"": ""7ee85df6-5e86-47c3-8e42-8e44c7fe854c"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LeverActivate"",
+                    ""action"": ""SitInRobot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""ABOBA"",
-            ""id"": ""893f74a7-6bf2-4519-a780-b9aa3314876c"",
+            ""name"": ""AT_ATControl"",
+            ""id"": ""f5443e53-4b4d-4cba-9730-c6dc24ec7437"",
             ""actions"": [
                 {
+                    ""name"": ""MovingHorisontal"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""efd090c0-bda5-4f02-9546-ed24369402e3"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d94cc5c-c102-4b14-936b-758d90199ab0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HoldObject"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""ae552890-746d-48cf-bca1-3f318423e6dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PickObject"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""7ded0f73-ffd3-4a0c-a5c4-63e330590c2a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Lever"",
-                    ""type"": ""Value"",
-                    ""id"": ""a6ff62c0-a36d-40f9-b174-60c41e4c1364"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d859409-8d0d-4543-acad-cb7383cb3ef3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -317,7 +313,7 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""RobotExit"",
                     ""type"": ""Button"",
-                    ""id"": ""c9608451-93b5-4422-a499-8fa2d7cb727f"",
+                    ""id"": ""6bc68780-5dd7-4ad6-859f-6260b76d5a85"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -327,7 +323,29 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""045fd78b-61e6-4d6e-8783-96b0e8eb5f20"",
+                    ""id"": ""8956b646-b79a-4fde-9b1b-58b927326366"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43376598-5c6c-4e94-887e-512d28f20c06"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e12efbfb-e832-4bb7-932f-b74560271fc7"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -338,7 +356,7 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f557820c-c485-47c2-810c-c13d1481a59d"",
+                    ""id"": ""2db57921-c421-42b0-a8e5-8fbcff562ee5"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -346,8 +364,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""action"": ""Lever"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-<<<<<<< Updated upstream
-=======
                 },
                 {
                     ""name"": ""MovingHorisontal"",
@@ -483,7 +499,7 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ae3b59cb-b935-4043-9aa6-3c50417be2db"",
+                    ""id"": ""74a3e53c-cac2-462a-8106-b5ce97bc24ef"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -491,18 +507,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""action"": ""RobotExit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6cbd0dfc-0159-49f4-ab81-4d5a6857f9f8"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RobotExit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
->>>>>>> Stashed changes
                 }
             ]
         }
@@ -514,16 +518,8 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         m_PlayerActionsInput_DebugMessage = m_PlayerActionsInput.FindAction("DebugMessage", throwIfNotFound: true);
         m_PlayerActionsInput_MovingHorisontal = m_PlayerActionsInput.FindAction("MovingHorisontal", throwIfNotFound: true);
         m_PlayerActionsInput_Jump = m_PlayerActionsInput.FindAction("Jump", throwIfNotFound: true);
-        m_PlayerActionsInput_PickObject = m_PlayerActionsInput.FindAction("PickObject", throwIfNotFound: true);
-        m_PlayerActionsInput_HoldObject = m_PlayerActionsInput.FindAction("HoldObject", throwIfNotFound: true);
         m_PlayerActionsInput_ToLobby = m_PlayerActionsInput.FindAction("ToLobby", throwIfNotFound: true);
         m_PlayerActionsInput_DeleteProgress = m_PlayerActionsInput.FindAction("DeleteProgress", throwIfNotFound: true);
-<<<<<<< Updated upstream
-        m_PlayerActionsInput_LeverActivate = m_PlayerActionsInput.FindAction("LeverActivate", throwIfNotFound: true);
-        // ABOBA
-        m_ABOBA = asset.FindActionMap("ABOBA", throwIfNotFound: true);
-        m_ABOBA_Lever = m_ABOBA.FindAction("Lever", throwIfNotFound: true);
-=======
         m_PlayerActionsInput_SitInRobot = m_PlayerActionsInput.FindAction("SitInRobot", throwIfNotFound: true);
         // AT_ATControl
         m_AT_ATControl = asset.FindActionMap("AT_ATControl", throwIfNotFound: true);
@@ -533,7 +529,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         m_AT_ATControl_PickObject = m_AT_ATControl.FindAction("PickObject", throwIfNotFound: true);
         m_AT_ATControl_Lever = m_AT_ATControl.FindAction("Lever", throwIfNotFound: true);
         m_AT_ATControl_RobotExit = m_AT_ATControl.FindAction("RobotExit", throwIfNotFound: true);
->>>>>>> Stashed changes
     }
 
     public void Dispose()
@@ -598,11 +593,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionsInput_DebugMessage;
     private readonly InputAction m_PlayerActionsInput_MovingHorisontal;
     private readonly InputAction m_PlayerActionsInput_Jump;
-    private readonly InputAction m_PlayerActionsInput_PickObject;
-    private readonly InputAction m_PlayerActionsInput_HoldObject;
     private readonly InputAction m_PlayerActionsInput_ToLobby;
     private readonly InputAction m_PlayerActionsInput_DeleteProgress;
-    private readonly InputAction m_PlayerActionsInput_LeverActivate;
+    private readonly InputAction m_PlayerActionsInput_SitInRobot;
     public struct PlayerActionsInputActions
     {
         private @PlayerMovementNew m_Wrapper;
@@ -610,11 +603,9 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         public InputAction @DebugMessage => m_Wrapper.m_PlayerActionsInput_DebugMessage;
         public InputAction @MovingHorisontal => m_Wrapper.m_PlayerActionsInput_MovingHorisontal;
         public InputAction @Jump => m_Wrapper.m_PlayerActionsInput_Jump;
-        public InputAction @PickObject => m_Wrapper.m_PlayerActionsInput_PickObject;
-        public InputAction @HoldObject => m_Wrapper.m_PlayerActionsInput_HoldObject;
         public InputAction @ToLobby => m_Wrapper.m_PlayerActionsInput_ToLobby;
         public InputAction @DeleteProgress => m_Wrapper.m_PlayerActionsInput_DeleteProgress;
-        public InputAction @LeverActivate => m_Wrapper.m_PlayerActionsInput_LeverActivate;
+        public InputAction @SitInRobot => m_Wrapper.m_PlayerActionsInput_SitInRobot;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionsInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -633,21 +624,15 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @PickObject.started += instance.OnPickObject;
-            @PickObject.performed += instance.OnPickObject;
-            @PickObject.canceled += instance.OnPickObject;
-            @HoldObject.started += instance.OnHoldObject;
-            @HoldObject.performed += instance.OnHoldObject;
-            @HoldObject.canceled += instance.OnHoldObject;
             @ToLobby.started += instance.OnToLobby;
             @ToLobby.performed += instance.OnToLobby;
             @ToLobby.canceled += instance.OnToLobby;
             @DeleteProgress.started += instance.OnDeleteProgress;
             @DeleteProgress.performed += instance.OnDeleteProgress;
             @DeleteProgress.canceled += instance.OnDeleteProgress;
-            @LeverActivate.started += instance.OnLeverActivate;
-            @LeverActivate.performed += instance.OnLeverActivate;
-            @LeverActivate.canceled += instance.OnLeverActivate;
+            @SitInRobot.started += instance.OnSitInRobot;
+            @SitInRobot.performed += instance.OnSitInRobot;
+            @SitInRobot.canceled += instance.OnSitInRobot;
         }
 
         private void UnregisterCallbacks(IPlayerActionsInputActions instance)
@@ -661,21 +646,15 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @PickObject.started -= instance.OnPickObject;
-            @PickObject.performed -= instance.OnPickObject;
-            @PickObject.canceled -= instance.OnPickObject;
-            @HoldObject.started -= instance.OnHoldObject;
-            @HoldObject.performed -= instance.OnHoldObject;
-            @HoldObject.canceled -= instance.OnHoldObject;
             @ToLobby.started -= instance.OnToLobby;
             @ToLobby.performed -= instance.OnToLobby;
             @ToLobby.canceled -= instance.OnToLobby;
             @DeleteProgress.started -= instance.OnDeleteProgress;
             @DeleteProgress.performed -= instance.OnDeleteProgress;
             @DeleteProgress.canceled -= instance.OnDeleteProgress;
-            @LeverActivate.started -= instance.OnLeverActivate;
-            @LeverActivate.performed -= instance.OnLeverActivate;
-            @LeverActivate.canceled -= instance.OnLeverActivate;
+            @SitInRobot.started -= instance.OnSitInRobot;
+            @SitInRobot.performed -= instance.OnSitInRobot;
+            @SitInRobot.canceled -= instance.OnSitInRobot;
         }
 
         public void RemoveCallbacks(IPlayerActionsInputActions instance)
@@ -694,18 +673,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
     }
     public PlayerActionsInputActions @PlayerActionsInput => new PlayerActionsInputActions(this);
 
-<<<<<<< Updated upstream
-    // ABOBA
-    private readonly InputActionMap m_ABOBA;
-    private List<IABOBAActions> m_ABOBAActionsCallbackInterfaces = new List<IABOBAActions>();
-    private readonly InputAction m_ABOBA_Lever;
-    public struct ABOBAActions
-    {
-        private @PlayerMovementNew m_Wrapper;
-        public ABOBAActions(@PlayerMovementNew wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Lever => m_Wrapper.m_ABOBA_Lever;
-        public InputActionMap Get() { return m_Wrapper.m_ABOBA; }
-=======
     // AT_ATControl
     private readonly InputActionMap m_AT_ATControl;
     private List<IAT_ATControlActions> m_AT_ATControlActionsCallbackInterfaces = new List<IAT_ATControlActions>();
@@ -726,15 +693,26 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         public InputAction @Lever => m_Wrapper.m_AT_ATControl_Lever;
         public InputAction @RobotExit => m_Wrapper.m_AT_ATControl_RobotExit;
         public InputActionMap Get() { return m_Wrapper.m_AT_ATControl; }
->>>>>>> Stashed changes
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ABOBAActions set) { return set.Get(); }
-        public void AddCallbacks(IABOBAActions instance)
+        public static implicit operator InputActionMap(AT_ATControlActions set) { return set.Get(); }
+        public void AddCallbacks(IAT_ATControlActions instance)
         {
-            if (instance == null || m_Wrapper.m_ABOBAActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ABOBAActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_AT_ATControlActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AT_ATControlActionsCallbackInterfaces.Add(instance);
+            @MovingHorisontal.started += instance.OnMovingHorisontal;
+            @MovingHorisontal.performed += instance.OnMovingHorisontal;
+            @MovingHorisontal.canceled += instance.OnMovingHorisontal;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @HoldObject.started += instance.OnHoldObject;
+            @HoldObject.performed += instance.OnHoldObject;
+            @HoldObject.canceled += instance.OnHoldObject;
+            @PickObject.started += instance.OnPickObject;
+            @PickObject.performed += instance.OnPickObject;
+            @PickObject.canceled += instance.OnPickObject;
             @Lever.started += instance.OnLever;
             @Lever.performed += instance.OnLever;
             @Lever.canceled += instance.OnLever;
@@ -743,8 +721,20 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @RobotExit.canceled += instance.OnRobotExit;
         }
 
-        private void UnregisterCallbacks(IABOBAActions instance)
+        private void UnregisterCallbacks(IAT_ATControlActions instance)
         {
+            @MovingHorisontal.started -= instance.OnMovingHorisontal;
+            @MovingHorisontal.performed -= instance.OnMovingHorisontal;
+            @MovingHorisontal.canceled -= instance.OnMovingHorisontal;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @HoldObject.started -= instance.OnHoldObject;
+            @HoldObject.performed -= instance.OnHoldObject;
+            @HoldObject.canceled -= instance.OnHoldObject;
+            @PickObject.started -= instance.OnPickObject;
+            @PickObject.performed -= instance.OnPickObject;
+            @PickObject.canceled -= instance.OnPickObject;
             @Lever.started -= instance.OnLever;
             @Lever.performed -= instance.OnLever;
             @Lever.canceled -= instance.OnLever;
@@ -753,34 +743,36 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @RobotExit.canceled -= instance.OnRobotExit;
         }
 
-        public void RemoveCallbacks(IABOBAActions instance)
+        public void RemoveCallbacks(IAT_ATControlActions instance)
         {
-            if (m_Wrapper.m_ABOBAActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_AT_ATControlActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IABOBAActions instance)
+        public void SetCallbacks(IAT_ATControlActions instance)
         {
-            foreach (var item in m_Wrapper.m_ABOBAActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_AT_ATControlActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_ABOBAActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_AT_ATControlActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public ABOBAActions @ABOBA => new ABOBAActions(this);
+    public AT_ATControlActions @AT_ATControl => new AT_ATControlActions(this);
     public interface IPlayerActionsInputActions
     {
         void OnDebugMessage(InputAction.CallbackContext context);
         void OnMovingHorisontal(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnPickObject(InputAction.CallbackContext context);
-        void OnHoldObject(InputAction.CallbackContext context);
         void OnToLobby(InputAction.CallbackContext context);
         void OnDeleteProgress(InputAction.CallbackContext context);
-        void OnLeverActivate(InputAction.CallbackContext context);
+        void OnSitInRobot(InputAction.CallbackContext context);
     }
-    public interface IABOBAActions
+    public interface IAT_ATControlActions
     {
+        void OnMovingHorisontal(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnHoldObject(InputAction.CallbackContext context);
+        void OnPickObject(InputAction.CallbackContext context);
         void OnLever(InputAction.CallbackContext context);
         void OnRobotExit(InputAction.CallbackContext context);
     }
