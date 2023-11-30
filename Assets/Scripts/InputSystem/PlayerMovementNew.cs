@@ -293,15 +293,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PickObject"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""7ded0f73-ffd3-4a0c-a5c4-63e330590c2a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Lever"",
                     ""type"": ""Button"",
                     ""id"": ""8d859409-8d0d-4543-acad-cb7383cb3ef3"",
@@ -324,22 +315,11 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8956b646-b79a-4fde-9b1b-58b927326366"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HoldObject"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""43376598-5c6c-4e94-887e-512d28f20c06"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PickObject"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -526,7 +506,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         m_AT_ATControl_MovingHorisontal = m_AT_ATControl.FindAction("MovingHorisontal", throwIfNotFound: true);
         m_AT_ATControl_Jump = m_AT_ATControl.FindAction("Jump", throwIfNotFound: true);
         m_AT_ATControl_HoldObject = m_AT_ATControl.FindAction("HoldObject", throwIfNotFound: true);
-        m_AT_ATControl_PickObject = m_AT_ATControl.FindAction("PickObject", throwIfNotFound: true);
         m_AT_ATControl_Lever = m_AT_ATControl.FindAction("Lever", throwIfNotFound: true);
         m_AT_ATControl_RobotExit = m_AT_ATControl.FindAction("RobotExit", throwIfNotFound: true);
     }
@@ -679,7 +658,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
     private readonly InputAction m_AT_ATControl_MovingHorisontal;
     private readonly InputAction m_AT_ATControl_Jump;
     private readonly InputAction m_AT_ATControl_HoldObject;
-    private readonly InputAction m_AT_ATControl_PickObject;
     private readonly InputAction m_AT_ATControl_Lever;
     private readonly InputAction m_AT_ATControl_RobotExit;
     public struct AT_ATControlActions
@@ -689,7 +667,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         public InputAction @MovingHorisontal => m_Wrapper.m_AT_ATControl_MovingHorisontal;
         public InputAction @Jump => m_Wrapper.m_AT_ATControl_Jump;
         public InputAction @HoldObject => m_Wrapper.m_AT_ATControl_HoldObject;
-        public InputAction @PickObject => m_Wrapper.m_AT_ATControl_PickObject;
         public InputAction @Lever => m_Wrapper.m_AT_ATControl_Lever;
         public InputAction @RobotExit => m_Wrapper.m_AT_ATControl_RobotExit;
         public InputActionMap Get() { return m_Wrapper.m_AT_ATControl; }
@@ -710,9 +687,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @HoldObject.started += instance.OnHoldObject;
             @HoldObject.performed += instance.OnHoldObject;
             @HoldObject.canceled += instance.OnHoldObject;
-            @PickObject.started += instance.OnPickObject;
-            @PickObject.performed += instance.OnPickObject;
-            @PickObject.canceled += instance.OnPickObject;
             @Lever.started += instance.OnLever;
             @Lever.performed += instance.OnLever;
             @Lever.canceled += instance.OnLever;
@@ -732,9 +706,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
             @HoldObject.started -= instance.OnHoldObject;
             @HoldObject.performed -= instance.OnHoldObject;
             @HoldObject.canceled -= instance.OnHoldObject;
-            @PickObject.started -= instance.OnPickObject;
-            @PickObject.performed -= instance.OnPickObject;
-            @PickObject.canceled -= instance.OnPickObject;
             @Lever.started -= instance.OnLever;
             @Lever.performed -= instance.OnLever;
             @Lever.canceled -= instance.OnLever;
@@ -772,7 +743,6 @@ public partial class @PlayerMovementNew: IInputActionCollection2, IDisposable
         void OnMovingHorisontal(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnHoldObject(InputAction.CallbackContext context);
-        void OnPickObject(InputAction.CallbackContext context);
         void OnLever(InputAction.CallbackContext context);
         void OnRobotExit(InputAction.CallbackContext context);
     }

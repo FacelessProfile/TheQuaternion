@@ -12,8 +12,8 @@ public class SaveManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(key))
         {
-            return PlayerPrefs.GetString(key);
             Debug.Log("FoundFile");
+            return PlayerPrefs.GetString(key);
         }
         else
         {

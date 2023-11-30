@@ -271,15 +271,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PickObject",
-                    "type": "PassThrough",
-                    "id": "7ded0f73-ffd3-4a0c-a5c4-63e330590c2a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Lever",
                     "type": "Button",
                     "id": "8d859409-8d0d-4543-acad-cb7383cb3ef3",
@@ -302,22 +293,11 @@
                 {
                     "name": "",
                     "id": "8956b646-b79a-4fde-9b1b-58b927326366",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "HoldObject",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "43376598-5c6c-4e94-887e-512d28f20c06",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PickObject",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

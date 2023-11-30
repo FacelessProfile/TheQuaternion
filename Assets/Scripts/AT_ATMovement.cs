@@ -43,7 +43,6 @@ public class AT_ATMovement : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(movement * speed * Time.fixedDeltaTime);
-        Debug.Log(catInAT);
     }
     void Update()
     {
@@ -95,7 +94,6 @@ public class AT_ATMovement : MonoBehaviour
         if (other.CompareTag("Bounds")) ResetPosition();
         if (other.CompareTag("FinishLine"))
         {
-
             saveManager.SaveData($"Level_{levelManager.levelCount}", "Passed");
             levelManager.LevelLoad(++levelManager.levelCount);
         }

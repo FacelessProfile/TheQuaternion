@@ -19,8 +19,8 @@ public class CatMovement : MonoBehaviour
 
     public PlayerMovementNew playerMovement;
     public LevelManager levelManager;
+    public ItemPickuper itemPickuper;
     private SaveManager saveManager;
-    private ItemPickuper itemPickuper;
     private AT_ATMovement At;
 
     public List<string> Inventory= new List<string>() { }; 
@@ -129,6 +129,7 @@ public class CatMovement : MonoBehaviour
             transform.SetParent(AT_AT.transform, false);
             Camera.transform.SetParent(AT_AT.transform, false);
             gameObject.SetActive(false);
+
             At.playerMovement.AT_ATControl.Enable();
         }
     }

@@ -637,8 +637,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 50
+  m_UseAutoMass: 1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -725,9 +725,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBeingHeld: 0
-  Player: {fileID: 782695816}
-  HighAbove: 1
-  xTranslate: 1.2
+  AT_AT: {fileID: 1670203967}
+  HighAbove: 5
+  xTranslate: 5
   MaxDistance: 2
 --- !u!1 &421873278
 GameObject:

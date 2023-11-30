@@ -35,7 +35,7 @@ public class DoorOpener : MonoBehaviour
             }
             else
             {
-                Debug.Log("Ne BimBim");
+                
             }
     }
 
