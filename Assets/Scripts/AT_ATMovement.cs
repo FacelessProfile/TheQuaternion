@@ -18,12 +18,13 @@ public class AT_ATMovement : MonoBehaviour
     private CatMovement catMovement;
     public LevelManager levelManager;
 
-    private Vector2 movement;
+    public Vector2 movement;
     private Vector2 CurrentPos;
     public Vector3 originalScale;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     public GameObject Player;
+    public GameObject playerSquare;
 
     void Start()
     {
@@ -46,6 +47,8 @@ public class AT_ATMovement : MonoBehaviour
     }
     void Update()
     {
+        if (movement.x < 0) playerSquare.transform.rotation = Quaternion.Euler(0, 180, 0);
+        if (movement.x > 0) playerSquare.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     void Moving(InputAction.CallbackContext context)
     {
@@ -77,6 +80,7 @@ public class AT_ATMovement : MonoBehaviour
             playerMovement.AT_ATControl.Disable();
             catMovement.playerMovement.PlayerActionsInput.Enable();
             Player.SetActive(true);
+            rb.simulated = false;
             Player.transform.parent = null;
             Player.transform.localScale = catMovement.originalScale;
             Player.transform.position = new Vector2(CurrentPos.x + Offset, CurrentPos.y + Offset);

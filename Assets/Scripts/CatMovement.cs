@@ -12,6 +12,7 @@ public class CatMovement : MonoBehaviour
    
     public GameObject AT_AT;
     public GameObject Camera;
+    public GameObject playerSquare;
 
     public Vector3 originalScale;
     private Vector2 movement;
@@ -42,7 +43,6 @@ public class CatMovement : MonoBehaviour
         At = FindObjectOfType<AT_ATMovement>();
         rb = GetComponent<Rigidbody2D>();
         saveManager = GetComponent<SaveManager>();
-
         At.catInAT = false;
 
     }
@@ -57,7 +57,8 @@ public class CatMovement : MonoBehaviour
 
     void Update()
     {
-
+        if (movement.x < 0) playerSquare.transform.rotation = Quaternion.Euler(0, 180, 0);
+        if (movement.x > 0) playerSquare.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void Moving(InputAction.CallbackContext context)
@@ -129,6 +130,7 @@ public class CatMovement : MonoBehaviour
             transform.SetParent(AT_AT.transform, false);
             Camera.transform.SetParent(AT_AT.transform, false);
             gameObject.SetActive(false);
+            At.rb.isKinematic = false;
 
             At.playerMovement.AT_ATControl.Enable();
         }

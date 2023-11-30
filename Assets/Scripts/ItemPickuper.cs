@@ -31,13 +31,11 @@ public class ItemPickuper : MonoBehaviour
     public void PickUp(InputAction.CallbackContext context)
     {
         if (At.catInAT) isBeingHeld = true;
-        Debug.Log("Pick");
     }
 
     public void Release(InputAction.CallbackContext context)
     {
         if (At.catInAT) isBeingHeld = false;
-        Debug.Log("NePick");
     }
 
     void Update()
@@ -48,8 +46,10 @@ public class ItemPickuper : MonoBehaviour
             float distance = Vector2.Distance(rb.position, playerPosition);
             if (distance < MaxDistance)
             {
+                if (At.playerSquare.transform.rotation.y == 0) xTranslate = 3f;
+                if (At.playerSquare.transform.rotation.y > 0) xTranslate = -3f;
                 rb.MovePosition(new Vector2(playerPosition.x + xTranslate, playerPosition.y + HighAbove));
-                Debug.Log("перемещён");
+                Debug.Log("Pick");
             }
         }
     }
