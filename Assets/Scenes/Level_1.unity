@@ -2078,6 +2078,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4779459658580218422, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779459658580218422, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779459658580218422, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8220012506387164877, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -2174,7 +2186,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8220012507278125321, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+    - {fileID: 4169997664019374793, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
 --- !u!1 &2008329837
 GameObject:
