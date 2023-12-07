@@ -9,7 +9,7 @@ public class CatMovement : MonoBehaviour
     public float jumpForce = 550f;
     public float maxHorizontalSpeed = 8f;
     private bool isGrounded;
-   
+
     public GameObject AT_AT;
     public GameObject Camera;
     public GameObject playerSquare;
@@ -24,7 +24,9 @@ public class CatMovement : MonoBehaviour
     private SaveManager saveManager;
     private AT_ATMovement At;
 
-    public List<string> Inventory= new List<string>() { }; 
+    public Animator anim;
+
+    public List<string> Inventory = new List<string>() { };
 
     void Start()
     {
@@ -42,7 +44,9 @@ public class CatMovement : MonoBehaviour
 
         At = FindObjectOfType<AT_ATMovement>();
         rb = GetComponent<Rigidbody2D>();
+        anim = playerSquare.GetComponent<Animator>();
         saveManager = GetComponent<SaveManager>();
+
         At.catInAT = false;
 
     }
@@ -59,6 +63,8 @@ public class CatMovement : MonoBehaviour
     {
         if (movement.x < 0) playerSquare.transform.rotation = Quaternion.Euler(0, 180, 0);
         if (movement.x > 0) playerSquare.transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (movement.x == 0) anim.SetBool("Move", false); 
+        if (movement.x < 0 || movement.x > 0) anim.SetBool("Move", true);
     }
 
     void Moving(InputAction.CallbackContext context)
@@ -70,7 +76,9 @@ public class CatMovement : MonoBehaviour
 
     void StopMoving(InputAction.CallbackContext context)
     {
+        
         movement = Vector2.zero;
+
     }
 
     void Jump(InputAction.CallbackContext context)
@@ -84,7 +92,7 @@ public class CatMovement : MonoBehaviour
     }
 
 
-
+     
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Ground"))
