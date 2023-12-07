@@ -2321,6 +2321,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1575748420}
     - target: {fileID: 8220012506742609195, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: itemPickuper
+      value: 
+      objectReference: {fileID: 417546566}
+    - target: {fileID: 8220012506742609195, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 1033031873}

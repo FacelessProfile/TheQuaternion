@@ -106,7 +106,7 @@ public class CatMovement : MonoBehaviour
         if (other.CompareTag("FinishLine"))
         {
             saveManager.SaveData($"Level_{levelManager.levelCount}", "Passed");
-            levelManager.LevelLoad(++levelManager.levelCount);
+            levelManager.LevelLoad(levelManager.levelCount);
         }
     }
 
@@ -138,7 +138,7 @@ public class CatMovement : MonoBehaviour
             transform.SetParent(AT_AT.transform, false);
             Camera.transform.SetParent(AT_AT.transform, false);
             gameObject.SetActive(false);
-            At.rb.isKinematic = false;
+            At.rb.simulated = true;
 
             At.playerMovement.AT_ATControl.Enable();
         }
