@@ -26,8 +26,19 @@ public class LevelManager : MonoBehaviour
 
     public void LevelLoad(int LevelCount)
     {
-        if (levelCount <= 5) SceneManager.LoadScene($"Level_{++LevelCount}");
-        else SceneManager.LoadScene("Lobby");
+        if (levelCount <= 1) {
+            if (SceneManager.GetActiveScene().name == "Lobby")
+            {
+                SceneManager.LoadScene($"Level_{LevelCount}");
+            }
+            else {
+                SceneManager.LoadScene($"Level_{LevelCount++}");
+            }
+        }
+
+        else {
+            SceneManager.LoadScene("Lobby");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

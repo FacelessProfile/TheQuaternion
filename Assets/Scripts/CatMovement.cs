@@ -106,7 +106,7 @@ public class CatMovement : MonoBehaviour
         if (other.CompareTag("FinishLine"))
         {
             saveManager.SaveData($"Level_{levelManager.levelCount}", "Passed");
-            levelManager.LevelLoad(levelManager.levelCount);
+            levelManager.LevelLoad(levelManager.levelCount++ );
         }
     }
 
