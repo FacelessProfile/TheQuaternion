@@ -21,8 +21,11 @@ public class AT_ATMovement : MonoBehaviour
     public Vector2 movement;
     private Vector2 CurrentPos;
     public Vector3 originalScale;
-    public Rigidbody2D rb;
 
+    public Rigidbody2D rb;
+    public Animator anim;
+    private SpriteRenderer spriteRenderer;
+    
     public GameObject Player;
     public GameObject playerSquare;
 
@@ -38,6 +41,9 @@ public class AT_ATMovement : MonoBehaviour
         playerMovement.AT_ATControl.RobotExit.started += CatExit;
 
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
 
         this.originalScale = gameObject.transform.localScale;
     }
@@ -47,8 +53,17 @@ public class AT_ATMovement : MonoBehaviour
     }
     void Update()
     {
-        if (movement.x < 0) playerSquare.transform.rotation = Quaternion.Euler(0, 180, 0);
-        if (movement.x > 0) playerSquare.transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (movement.x < 0)
+        {
+            playerSquare.transform.rotation = Quaternion.Euler(0, 180, 0);
+            spriteRenderer.flipX = false;
+        }
+        if (movement.x > 0) {
+            playerSquare.transform.rotation = Quaternion.Euler(0, 0, 0);
+            spriteRenderer.flipX = true;
+        }
+        if (movement.x == 0) anim.SetBool("Moving", false);
+        if (movement.x < 0 || movement.x > 0) anim.SetBool("Moving", true);
     }
     void Moving(InputAction.CallbackContext context)
     {
