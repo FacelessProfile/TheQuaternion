@@ -11,12 +11,13 @@ public class DoorOpener : MonoBehaviour
     private Vector2 initialPosition;
     private Vector2 targetPosition;
 
+    public GameObject Lever;
     private Lever lever;
     public Rigidbody2D DoorRigidbody;
 
     void Start()
     {
-        lever = FindObjectOfType<Lever>();
+        lever = Lever.GetComponent<Lever>();
         initialPosition = DoorRigidbody.position;
         targetPosition = initialPosition + new Vector2(0f, 5f);
     }
@@ -57,11 +58,4 @@ public class DoorOpener : MonoBehaviour
 
         DoorRigidbody.position = targetPosition;
     }
-
-    /*void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-        }
-    }*/
 }

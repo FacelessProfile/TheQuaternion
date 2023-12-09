@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8944912274676647148}
+  - component: {fileID: 8944912274676647149}
+  - component: {fileID: 4993010941750592813}
   - component: {fileID: 8944912274676647144}
   - component: {fileID: 8944912274676647147}
   - component: {fileID: 8944912274676647146}
-  - component: {fileID: 8944912274676647149}
   - component: {fileID: 6477228289228414401}
   - component: {fileID: 9029642422839104633}
   m_Layer: 0
@@ -37,6 +38,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8944912274676647149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944912274676647151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ac98b1522391549913a676fcd9597d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: 1
+  speed: 13
+  jumpForce: 300
+  maxHorizontalSpeed: 15
+  isGrounded: 0
+  catInAT: 0
+  inside: 0
+  levelManager: {fileID: 0}
+  movement: {x: 0, y: 0}
+  originalScale: {x: 0, y: 0, z: 0}
+  rb: {fileID: 8944912274676647144}
+  anim: {fileID: 0}
+  Player: {fileID: 0}
+  playerSquare: {fileID: 8944912274920327497}
+--- !u!114 &4993010941750592813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944912274676647151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481ba3d7b59c9ff4b9e500c1df3b64d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8944912274676647144
 Rigidbody2D:
   serializedVersion: 4
@@ -110,31 +149,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8944912274676647149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944912274676647151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ac98b1522391549913a676fcd9597d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Offset: 1
-  speed: 13
-  jumpForce: 300
-  maxHorizontalSpeed: 15
-  isGrounded: 0
-  catInAT: 0
-  inside: 0
-  levelManager: {fileID: 0}
-  movement: {x: 0, y: 0}
-  originalScale: {x: 0, y: 0, z: 0}
-  rb: {fileID: 8944912274676647144}
-  Player: {fileID: 0}
-  playerSquare: {fileID: 8944912274920327497}
 --- !u!95 &6477228289228414401
 Animator:
   serializedVersion: 5

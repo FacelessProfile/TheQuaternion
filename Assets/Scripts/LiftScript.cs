@@ -22,7 +22,6 @@ public class LiftScript : MonoBehaviour
 
     void MoveLift()
     {
-
         Vector2 velocity = new Vector2(0f, -liftSpeed);
         liftRigidbody.velocity = velocity;
         StartCoroutine(StopLiftAfterDuration(velocity));
@@ -32,6 +31,7 @@ public class LiftScript : MonoBehaviour
     {
         yield return new WaitForSeconds(liftDuration);
         liftRigidbody.velocity = Vector2.zero;
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)

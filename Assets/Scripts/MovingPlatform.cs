@@ -8,7 +8,8 @@ public class MovingPlatform : MonoBehaviour
     public float moveSpeed = 5f;
     public float moveDirection = -1f;
     public float maxDistance = 5f;
-    private float currentDistance = 0f;
+    public float currentDistance = 0f;
+    public int direction;
     public Rigidbody2D rb;
 
     void Start()
@@ -18,16 +19,47 @@ public class MovingPlatform : MonoBehaviour
 
     void Update()
     {
-        if (isActive)
+        switch (direction)
         {
-            rb.velocity = new Vector2 (moveDirection * moveSpeed, 0f);
-            currentDistance += moveSpeed * Time.deltaTime;
-
-            if (currentDistance >= maxDistance)
+            case 0:
+            if (isActive)
             {
-                currentDistance = 0f;
-                moveDirection = -moveDirection;
-            }   
+                rb.velocity = new Vector2(moveDirection * moveSpeed, 0f);
+                currentDistance += moveSpeed * Time.deltaTime;
+
+                if (currentDistance >= maxDistance)
+                {
+                    currentDistance = 0f;
+                    moveDirection = -moveDirection;
+                }
+            }
+            else rb.velocity = new Vector2(0, 0);
+                break;
+
+            case 1:
+                if (isActive)
+                {
+                    rb.velocity = new Vector2(0f, -moveDirection * moveSpeed);
+                    currentDistance += moveSpeed * Time.deltaTime;
+
+                    if (currentDistance >= maxDistance)
+                    {
+                        rb.velocity = new Vector2(0, 0);
+                        currentDistance = 13f;
+                    }
+                }
+                else
+                {
+                    rb.velocity = new Vector2(0f, moveDirection * moveSpeed);
+                    currentDistance -= moveSpeed * Time.deltaTime;
+
+                    if (currentDistance <= 0)
+                    {
+                        rb.velocity = new Vector2(0, 0);
+                        currentDistance = 0f;
+                    }
+                }
+                break;
         }
     }
 }

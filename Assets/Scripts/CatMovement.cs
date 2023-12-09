@@ -23,7 +23,7 @@ public class CatMovement : MonoBehaviour
     public PlayerMovementNew playerMovement;
     public LevelManager levelManager;
     public ItemPickuper itemPickuper;
-    private SaveManager saveManager;
+    public SaveManager saveManager;
     private AT_ATMovement At;
 
     public Animator anim;
@@ -51,6 +51,7 @@ public class CatMovement : MonoBehaviour
         virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
 
         At.catInAT = false;
+        At.saveManager = saveManager;
 
     }
     void PrintDebugMessage(InputAction.CallbackContext context)
@@ -96,15 +97,13 @@ public class CatMovement : MonoBehaviour
 
 
      
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ground")) isGrounded = true;
         if (other.CompareTag("Bounds")) ResetPosition();
         if (other.CompareTag("FinishLine"))
         {
             saveManager.SaveData($"Level_{levelManager.levelCount}", "Passed");
             levelManager.LevelLoad(levelManager.levelCount);
-            virtualCamera.Follow = gameObject.transform;
         }
     }
 
@@ -115,6 +114,7 @@ public class CatMovement : MonoBehaviour
 
     void ResetPosition()
     {
+        levelManager.LevelLoad(levelManager.levelCount);
         transform.position = new Vector2(0f, 0f);
         rb.velocity = Vector2.zero;
         lifes--;
@@ -124,7 +124,7 @@ public class CatMovement : MonoBehaviour
         Inventory.Add(Item);
     }
 
-    void SitInRobot(InputAction.CallbackContext context)
+    public void SitInRobot(InputAction.CallbackContext context)
     {
         Debug.Log(At.inside);
         if (At.inside)
@@ -141,6 +141,7 @@ public class CatMovement : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     { 
+        if (other.CompareTag("Ground")) isGrounded = true;
     }
 
     private void ToLobby(InputAction.CallbackContext context)

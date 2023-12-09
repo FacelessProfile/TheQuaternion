@@ -114,9 +114,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8131662759167018995}
   - component: {fileID: 6637058415029386956}
+  - component: {fileID: 8311059837376248761}
   - component: {fileID: 8439442771825222670}
   - component: {fileID: 3647796709799799186}
-  - component: {fileID: 8311059837376248761}
   - component: {fileID: 6637058415295334697}
   - component: {fileID: 6637058415295334696}
   m_Layer: 6
@@ -156,6 +156,7 @@ MonoBehaviour:
   speed: 7
   jumpForce: 10
   maxHorizontalSpeed: 10
+  lifes: 408
   AT_AT: {fileID: 0}
   playerSquare: {fileID: 6637058414650613114}
   virtualCamera: {fileID: 0}
@@ -164,6 +165,18 @@ MonoBehaviour:
   itemPickuper: {fileID: 0}
   anim: {fileID: 0}
   Inventory: []
+--- !u!114 &8311059837376248761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637058415295334699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481ba3d7b59c9ff4b9e500c1df3b64d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8439442771825222670
 Rigidbody2D:
   serializedVersion: 4
@@ -211,18 +224,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.924145, y: 1.6005182}
   m_EdgeRadius: 0
---- !u!114 &8311059837376248761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6637058415295334699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481ba3d7b59c9ff4b9e500c1df3b64d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &6637058415295334697
 SpriteRenderer:
   m_ObjectHideFlags: 0

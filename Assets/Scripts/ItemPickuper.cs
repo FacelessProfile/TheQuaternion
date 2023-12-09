@@ -7,6 +7,7 @@ public class ItemPickuper : MonoBehaviour
 {
     public bool isBeingHeld = false;
     public GameObject AT_AT;
+    public GameObject hint;
     public float HighAbove;
     public float xTranslate;
     public float MaxDistance = 5f;
@@ -30,11 +31,13 @@ public class ItemPickuper : MonoBehaviour
 
     public void PickUp(InputAction.CallbackContext context)
     {
+        Debug.Log("поднять");
         if (At.catInAT) isBeingHeld = true;
     }
 
     public void Release(InputAction.CallbackContext context)
     {
+        Debug.Log("опустить");
         if (At.catInAT) isBeingHeld = false;
     }
 
@@ -42,6 +45,7 @@ public class ItemPickuper : MonoBehaviour
     {
         if (isBeingHeld)
         {
+            if (hint != null) hint.SetActive(false);
             Vector2 playerPosition = AT_AT.transform.position;
             float distance = Vector2.Distance(rb.position, playerPosition);
             if (distance < MaxDistance)

@@ -14,7 +14,7 @@ public class AT_ATMovement : MonoBehaviour
 
 
     public PlayerMovementNew playerMovement;
-    private SaveManager saveManager;
+    public SaveManager saveManager;
     private CatMovement catMovement;
     public LevelManager levelManager;
 
@@ -32,7 +32,7 @@ public class AT_ATMovement : MonoBehaviour
     void Start()
     {
         catMovement = Player.GetComponent<CatMovement>();
-        saveManager = Player.GetComponent<SaveManager>();
+        saveManager = GetComponent<SaveManager>();
 
         playerMovement = new PlayerMovementNew();
         playerMovement.AT_ATControl.MovingHorisontal.performed += Moving;
@@ -105,27 +105,31 @@ public class AT_ATMovement : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player") || catInAT) inside = true;
-        else inside = false;
+        if (other.CompareTag("Ground")) isGrounded = true;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ground")) isGrounded = true;
         if (other.CompareTag("Bounds")) ResetPosition();
         if (other.CompareTag("FinishLine"))
         {
             saveManager.SaveData($"Level_{levelManager.levelCount}", "Passed");
             levelManager.LevelLoad(levelManager.levelCount);
-            catMovement.virtualCamera.Follow = gameObject.transform;
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Ground")) isGrounded = false;
+        if (other.CompareTag("Player"))
+        {
+            inside = false;
+            Debug.Log("вышел"); 
+        }
     }
 
     void ResetPosition()
     {
         transform.position = new Vector2(0f, 0f);
         rb.velocity = Vector2.zero;
+        levelManager.LevelLoad(levelManager.levelCount);
     }
 }

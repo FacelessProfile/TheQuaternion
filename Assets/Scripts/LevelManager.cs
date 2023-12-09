@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     private Renderer objectRenderer;
     private SaveManager saveManager;
+    private CatMovement catMovement;
     public string Progress; 
 
     public int levelCount;
@@ -26,7 +27,10 @@ public class LevelManager : MonoBehaviour
 
     public void LevelLoad(int LevelCount)
     {
-        if (levelCount < 2) SceneManager.LoadScene($"Level_{++LevelCount}");
+        if (levelCount <= 2)
+        {
+            SceneManager.LoadScene($"Level_{++LevelCount}");
+        }
         else SceneManager.LoadScene("Lobby");
     }
 
