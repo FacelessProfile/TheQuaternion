@@ -32,13 +32,13 @@ public class Lever : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && newText == null && At.catInAT)
+        if (other.CompareTag("Player") && At.catInAT)
         {
             Debug.Log("ገሮንጅግይ3ፒፍዉፒብ");
             Vector2 newPosition = new Vector2(transform.position.x * canvasScale, transform.position.y * canvasScale + heightAbove* canvasScale);
             Canvas canvas = FindObjectOfType<Canvas>();
-            newText = Instantiate(textPrefab, newPosition, Quaternion.identity);
-            newText.transform.SetParent(canvas.transform, false);
+            //newText = Instantiate(textPrefab, newPosition, Quaternion.identity);
+            //newText.transform.SetParent(canvas.transform, false);
             Inside = true;
         if (At.inside)
         {

@@ -50,11 +50,14 @@ public class ItemPickuper : MonoBehaviour
             float distance = Vector2.Distance(rb.position, playerPosition);
             if (distance < MaxDistance)
             {
-                if (At.playerSquare.transform.rotation.y == 0) xTranslate = 3f;
-                if (At.playerSquare.transform.rotation.y > 0) xTranslate = -3f;
-                rb.MovePosition(new Vector2(playerPosition.x + xTranslate, playerPosition.y + HighAbove));
+                if (At.playerSquare.transform.rotation.y == 0) xTranslate = -3f;
+                if (At.playerSquare.transform.rotation.y > 0) xTranslate = 3f;
+
+                rb.position = new Vector2(playerPosition.x + xTranslate, playerPosition.y + HighAbove);
+                rb.velocity = Vector2.zero; // —брасываем скорость, чтобы избежать отталкивани€
                 Debug.Log("Pick");
             }
         }
     }
+
 }

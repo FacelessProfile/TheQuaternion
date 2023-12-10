@@ -154,17 +154,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  jumpForce: 10
+  jumpForce: 11
   maxHorizontalSpeed: 10
   lifes: 408
   isGrounded: 0
+  jumpCooldown: 0.3
   AT_AT: {fileID: 0}
   playerSquare: {fileID: 6637058414650613114}
+  Arthur: {fileID: 0}
   virtualCamera: {fileID: 0}
   originalScale: {x: 0, y: 0, z: 0}
   levelManager: {fileID: 0}
   itemPickuper: {fileID: 0}
   saveManager: {fileID: 0}
+  DS: {fileID: 0}
   anim: {fileID: 0}
   Inventory: []
 --- !u!114 &8311059837376248761

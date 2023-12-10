@@ -141,7 +141,7 @@ public class AT_ATMovement : MonoBehaviour
         if (other.CompareTag("FinishLine"))
         {
             saveManager.SaveData($"Level_{levelManager.levelCount-1}", "Passed");
-            levelManager.LevelLoad(levelManager.levelCount);
+            levelManager.LevelLoad(levelManager.levelCount,true);
         }
     }
     void OnTriggerExit2D(Collider2D other)
@@ -158,6 +158,6 @@ public class AT_ATMovement : MonoBehaviour
     {
         transform.position = new Vector2(0f, 0f);
         rb.velocity = Vector2.zero;
-        levelManager.LevelLoad(levelManager.levelCount);
+        levelManager.LevelLoad(levelManager.levelCount,false);
     }
 }

@@ -17,7 +17,7 @@ public class MovingPlatform : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         switch (direction)
         {

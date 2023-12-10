@@ -9,8 +9,11 @@ public class CatMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 550f;
     public float maxHorizontalSpeed = 8f;
-    public int lifes = 408;
+    public int lifes = 9;
     public bool isGrounded;
+    public float jumpCooldown = 0.3f;
+
+    private float lastJumpTime;
 
     public GameObject AT_AT;
     public GameObject playerSquare;
@@ -48,7 +51,7 @@ public class CatMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = playerSquare.GetComponent<Animator>();
         saveManager = GetComponent<SaveManager>();
-        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();;
 
         At.catInAT = false;
         At.saveManager = saveManager;
@@ -91,11 +94,12 @@ public class CatMovement : MonoBehaviour
     void Jump(InputAction.CallbackContext context)
     {
         if (rb == null) return;
-        if (isGrounded)
+        if (isGrounded && Time.time - lastJumpTime >= jumpCooldown)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            
+            lastJumpTime = Time.time;
+
         }
     }
 
@@ -107,7 +111,7 @@ public class CatMovement : MonoBehaviour
         if (other.CompareTag("FinishLine"))
         {
             saveManager.SaveData($"Level_{levelManager.levelCount-1}", "Passed");
-            levelManager.LevelLoad(levelManager.levelCount);
+            levelManager.LevelLoad(levelManager.levelCount,true);
         }
     }
 
@@ -118,7 +122,7 @@ public class CatMovement : MonoBehaviour
 
     void ResetPosition()
     {
-        levelManager.LevelLoad(levelManager.levelCount);
+        levelManager.LevelLoad(levelManager.levelCount,false);
         transform.position = new Vector2(0f, 0f);
         rb.velocity = Vector2.zero;
         lifes--;

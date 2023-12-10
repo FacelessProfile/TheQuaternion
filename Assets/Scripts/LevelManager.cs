@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     private SaveManager saveManager;
     private CatMovement catMovement;
     public string Progress; 
+    
 
     public int levelCount;
 
@@ -25,11 +26,12 @@ public class LevelManager : MonoBehaviour
         Debug.LogWarning(Progress);
     }
 
-    public void LevelLoad(int LevelCount)
+    public void LevelLoad(int LevelCount,bool Level)
     {
         if (levelCount <= 2)
         {
-            SceneManager.LoadScene($"Level_{++LevelCount}");
+            if (Level) SceneManager.LoadScene($"Level_{++LevelCount}");
+            else SceneManager.LoadScene($"Level_{LevelCount}");
         }
         else SceneManager.LoadScene("Lobby");
     }
@@ -38,7 +40,7 @@ public class LevelManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            LevelLoad(levelCount);
+            LevelLoad(levelCount,false);
         }
     }
     void Update()
