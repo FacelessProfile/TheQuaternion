@@ -10,7 +10,7 @@ public class CatMovement : MonoBehaviour
     public float jumpForce = 550f;
     public float maxHorizontalSpeed = 8f;
     public int lifes = 408;
-    private bool isGrounded;
+    public bool isGrounded;
 
     public GameObject AT_AT;
     public GameObject playerSquare;
@@ -69,6 +69,9 @@ public class CatMovement : MonoBehaviour
         if (movement.x > 0) playerSquare.transform.rotation = Quaternion.Euler(0, 0, 0);
         if (movement.x == 0) anim.SetBool("Move", false); 
         if (movement.x < 0 || movement.x > 0) anim.SetBool("Move", true);
+        if (!isGrounded) anim.SetBool("Jump", true);
+        if (isGrounded) anim.SetBool("Jump", false);
+
     }
 
     void Moving(InputAction.CallbackContext context)
@@ -92,6 +95,7 @@ public class CatMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            
         }
     }
 

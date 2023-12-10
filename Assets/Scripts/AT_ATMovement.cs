@@ -53,18 +53,46 @@ public class AT_ATMovement : MonoBehaviour
     }
     void Update()
     {
-        if (movement.x < 0)
+        /* if (movement.x < 0)
+         {
+
+             spriteRenderer.flipX = false;
+         }
+         if (movement.x > 0) {
+
+             spriteRenderer.flipX = true;
+         }
+        */
+
+        if (movement.x == 0)
+        {
+            anim.SetBool("MovingR", false);
+            anim.SetBool("MovingL", false);
+        }
+
+
+        if (movement.x > 0) 
         {
             playerSquare.transform.rotation = Quaternion.Euler(0, 180, 0);
+            anim.SetBool("MovingR", true);
             spriteRenderer.flipX = false;
         }
-        if (movement.x > 0) {
+        else anim.SetBool("MovingR", false);
+
+
+        if (movement.x < 0)
+        {
             playerSquare.transform.rotation = Quaternion.Euler(0, 0, 0);
-            spriteRenderer.flipX = true;
+            anim.SetBool("MovingL", true);
+            spriteRenderer.flipX = false;
         }
-        if (movement.x == 0) anim.SetBool("Moving", false);
-        if (movement.x < 0 || movement.x > 0) anim.SetBool("Moving", true);
-    }
+        else anim.SetBool("MovingL", false);
+
+
+        if (catInAT) anim.SetBool("CatInAT", true);
+
+
+    } 
     void Moving(InputAction.CallbackContext context)
     {
         if (rb == null) return;
