@@ -60,6 +60,30 @@ public class MovingPlatform : MonoBehaviour
                     }
                 }
                 break;
+            case 2:
+                if (isActive)
+                {
+                    rb.velocity = new Vector2(0f, -moveDirection * moveSpeed);
+                    currentDistance += moveSpeed * Time.deltaTime;
+
+                    if (currentDistance >= maxDistance)
+                    {
+                        rb.velocity = new Vector2(0, 0);
+                        currentDistance = 14f;
+                    }
+                }
+                else
+                {
+                    rb.velocity = new Vector2(0f, moveDirection * moveSpeed);
+                    currentDistance -= moveSpeed * Time.deltaTime;
+
+                    if (currentDistance <= 0)
+                    {
+                        rb.velocity = new Vector2(0, 0);
+                        currentDistance = 0f;
+                    }
+                }
+                break;
         }
     }
 }

@@ -157,12 +157,14 @@ MonoBehaviour:
   jumpForce: 10
   maxHorizontalSpeed: 10
   lifes: 408
+  isGrounded: 0
   AT_AT: {fileID: 0}
   playerSquare: {fileID: 6637058414650613114}
   virtualCamera: {fileID: 0}
   originalScale: {x: 0, y: 0, z: 0}
   levelManager: {fileID: 0}
   itemPickuper: {fileID: 0}
+  saveManager: {fileID: 0}
   anim: {fileID: 0}
   Inventory: []
 --- !u!114 &8311059837376248761

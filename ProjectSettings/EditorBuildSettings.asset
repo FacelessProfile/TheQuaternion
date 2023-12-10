@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 35024fb97af970b47b22786afa6eff28
   - enabled: 1
+    path: Assets/Scenes/StartVideo.unity
+    guid: 5be0dd57e700e4e4ca5609a7c429c88a
+  - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -17,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_2.unity
     guid: d81f5531289af1f4abfe933f71474383
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: b686ad89c34d4724cb2c1f0593ea4ed9
+  - enabled: 1
+    path: Assets/Scenes/GoodEndVideo.unity
+    guid: bd210bc2e82c10646831a1f317b1c97e
+  - enabled: 1
+    path: Assets/Scenes/BadEndVideo.unity
+    guid: e47a5cc475e88a445836bf74200c8932
   m_configObjects: {}

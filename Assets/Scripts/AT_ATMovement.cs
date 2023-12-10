@@ -140,7 +140,7 @@ public class AT_ATMovement : MonoBehaviour
         if (other.CompareTag("Bounds")) ResetPosition();
         if (other.CompareTag("FinishLine"))
         {
-            saveManager.SaveData($"Level_{levelManager.levelCount}", "Passed");
+            saveManager.SaveData($"Level_{levelManager.levelCount-1}", "Passed");
             levelManager.LevelLoad(levelManager.levelCount);
         }
     }
