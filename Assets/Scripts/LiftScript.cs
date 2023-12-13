@@ -31,7 +31,7 @@ public class LiftScript : MonoBehaviour
     {
         yield return new WaitForSeconds(liftDuration);
         liftRigidbody.velocity = Vector2.zero;
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -42,5 +42,3 @@ public class LiftScript : MonoBehaviour
         }
     }
 }
-
-

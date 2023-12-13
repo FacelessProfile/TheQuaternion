@@ -11,7 +11,6 @@ public class CatMovement : MonoBehaviour
     public float maxHorizontalSpeed = 8f;
     public int lifes = 9;
     public bool isGrounded;
-    public float jumpCooldown = 0.3f;
 
     private float lastJumpTime;
 
@@ -94,17 +93,26 @@ public class CatMovement : MonoBehaviour
     void Jump(InputAction.CallbackContext context)
     {
         if (rb == null) return;
-        if (isGrounded && Time.time - lastJumpTime >= jumpCooldown)
+        LayerMask groundLayer = LayerMask.GetMask("Ground");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.9f, groundLayer);
+
+        if (hit.collider != null)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+
+        if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            lastJumpTime = Time.time;
-
         }
     }
 
 
-     
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bounds")) ResetPosition();
@@ -117,7 +125,7 @@ public class CatMovement : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Ground")) isGrounded = false;
+       // if (other.CompareTag("Ground")) isGrounded = false;
     }
 
     void ResetPosition()
@@ -149,7 +157,7 @@ public class CatMovement : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     { 
-        if (other.CompareTag("Ground")) isGrounded = true;
+        //if (other.CompareTag("Ground")) isGrounded = true;
     }
 
     private void ToLobby(InputAction.CallbackContext context)

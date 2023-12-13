@@ -6,84 +6,55 @@ public class MovingPlatform : MonoBehaviour
 {
     public bool isActive = false;
     public float moveSpeed = 5f;
-    public float moveDirection = -1f;
     public float maxDistance = 5f;
-    public float currentDistance = 0f;
     public int direction;
-    public Rigidbody2D rb;
+
+    private Transform playerOnPlatform;
+    private bool isPlayerOnPlatform;
+    private Vector3 initialPosition;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        initialPosition = transform.position;
     }
 
     void FixedUpdate()
     {
-        switch (direction)
+        if (isActive)
         {
-            case 0:
-            if (isActive)
+            float movement = moveSpeed * Time.fixedDeltaTime * direction;
+
+            float newPositionX = Mathf.Clamp(transform.position.x + movement, initialPosition.x - maxDistance, initialPosition.x + maxDistance);
+            transform.position = new Vector3(newPositionX, transform.position.y, transform.position.z);
+
+            if (isPlayerOnPlatform && playerOnPlatform != null)
             {
-                rb.velocity = new Vector2(moveDirection * moveSpeed, 0f);
-                currentDistance += moveSpeed * Time.deltaTime;
-
-                if (currentDistance >= maxDistance)
-                {
-                    currentDistance = 0f;
-                    moveDirection = -moveDirection;
-                }
+                playerOnPlatform.Translate(new Vector3(movement, 0, 0));
             }
-            else rb.velocity = new Vector2(0, 0);
-                break;
 
-            case 1:
-                if (isActive)
-                {
-                    rb.velocity = new Vector2(0f, -moveDirection * moveSpeed);
-                    currentDistance += moveSpeed * Time.deltaTime;
+            if (Mathf.Abs(transform.position.x - initialPosition.x) >= maxDistance)
+            {
+                direction = -direction;
+            }
+        }
+    }
 
-                    if (currentDistance >= maxDistance)
-                    {
-                        rb.velocity = new Vector2(0, 0);
-                        currentDistance = 13f;
-                    }
-                }
-                else
-                {
-                    rb.velocity = new Vector2(0f, moveDirection * moveSpeed);
-                    currentDistance -= moveSpeed * Time.deltaTime;
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerOnPlatform = other.transform;
+            isPlayerOnPlatform = true;
+        }
+    }
 
-                    if (currentDistance <= 0)
-                    {
-                        rb.velocity = new Vector2(0, 0);
-                        currentDistance = 0f;
-                    }
-                }
-                break;
-            case 2:
-                if (isActive)
-                {
-                    rb.velocity = new Vector2(0f, -moveDirection * moveSpeed);
-                    currentDistance += moveSpeed * Time.deltaTime;
-
-                    if (currentDistance >= maxDistance)
-                    {
-                        rb.velocity = new Vector2(0, 0);
-                        currentDistance = 14f;
-                    }
-                }
-                else
-                {
-                    rb.velocity = new Vector2(0f, moveDirection * moveSpeed);
-                    currentDistance -= moveSpeed * Time.deltaTime;
-
-                    if (currentDistance <= 0)
-                    {
-                        rb.velocity = new Vector2(0, 0);
-                        currentDistance = 0f;
-                    }
-                }
-                break;
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerOnPlatform = null;
+            isPlayerOnPlatform = false;
         }
     }
 }
+
