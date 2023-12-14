@@ -6,55 +6,84 @@ public class MovingPlatform : MonoBehaviour
 {
     public bool isActive = false;
     public float moveSpeed = 5f;
+    public float moveDirection = -1f;
     public float maxDistance = 5f;
+    public float currentDistance = 0f;
     public int direction;
-
-    private Transform playerOnPlatform;
-    private bool isPlayerOnPlatform;
-    private Vector3 initialPosition;
+    public Rigidbody2D rb;
 
     void Start()
     {
-        initialPosition = transform.position;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (isActive)
+        switch (direction)
         {
-            float movement = moveSpeed * Time.fixedDeltaTime * direction;
+            case 0:
+                if (isActive)
+                {
+                    rb.velocity = new Vector2(moveDirection * moveSpeed, 0f);
+                    currentDistance += moveSpeed * Time.deltaTime;
 
-            float newPositionX = Mathf.Clamp(transform.position.x + movement, initialPosition.x - maxDistance, initialPosition.x + maxDistance);
-            transform.position = new Vector3(newPositionX, transform.position.y, transform.position.z);
+                    if (currentDistance >= maxDistance)
+                    {
+                        currentDistance = 0f;
+                        moveDirection = -moveDirection;
+                    }
+                }
+                else rb.velocity = new Vector2(0, 0);
+                break;
 
-            if (isPlayerOnPlatform && playerOnPlatform != null)
-            {
-                playerOnPlatform.Translate(new Vector3(movement, 0, 0));
-            }
+            case 1:
+                if (isActive)
+                {
+                    rb.velocity = new Vector2(0f, -moveDirection * moveSpeed);
+                    currentDistance += moveSpeed * Time.deltaTime;
 
-            if (Mathf.Abs(transform.position.x - initialPosition.x) >= maxDistance)
-            {
-                direction = -direction;
-            }
-        }
-    }
+                    if (currentDistance >= maxDistance)
+                    {
+                        rb.velocity = new Vector2(0, 0);
+                        currentDistance = 13f;
+                    }
+                }
+                else
+                {
+                    rb.velocity = new Vector2(0f, moveDirection * moveSpeed);
+                    currentDistance -= moveSpeed * Time.deltaTime;
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerOnPlatform = other.transform;
-            isPlayerOnPlatform = true;
-        }
-    }
+                    if (currentDistance <= 0)
+                    {
+                        rb.velocity = new Vector2(0, 0);
+                        currentDistance = 0f;
+                    }
+                }
+                break;
+            case 2:
+                if (isActive)
+                {
+                    rb.velocity = new Vector2(0f, -moveDirection * moveSpeed);
+                    currentDistance += moveSpeed * Time.deltaTime;
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerOnPlatform = null;
-            isPlayerOnPlatform = false;
+                    if (currentDistance >= maxDistance)
+                    {
+                        rb.velocity = new Vector2(0, 0);
+                        currentDistance = 14f;
+                    }
+                }
+                else
+                {
+                    rb.velocity = new Vector2(0f, moveDirection * moveSpeed);
+                    currentDistance -= moveSpeed * Time.deltaTime;
+
+                    if (currentDistance <= 0)
+                    {
+                        rb.velocity = new Vector2(0, 0);
+                        currentDistance = 0f;
+                    }
+                }
+                break;
         }
     }
 }
-

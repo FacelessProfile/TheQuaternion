@@ -2379,6 +2379,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bce0bc3e127d0bb46939338dc3f55497, type: 2}
+    - target: {fileID: 6637058414650613114, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6637058415029386956, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
       propertyPath: AT_AT
       value: 
@@ -2395,6 +2399,10 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1287510512}
+    - target: {fileID: 6637058415295334699, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8131662759167018995, guid: 0a6621166572ed14a9b8393dca2f6b6d, type: 3}
       propertyPath: m_RootOrder
       value: 0
