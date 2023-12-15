@@ -768,7 +768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337625946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.21, y: -9.98, z: 0}
+  m_LocalPosition: {x: 72.92, y: -9.82, z: 0}
   m_LocalScale: {x: 1.3948, y: 1.3948, z: 1.3948}
   m_Children: []
   m_Father: {fileID: 1567228112}
@@ -891,8 +891,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   moveSpeed: 4
-  maxDistance: 8
-  direction: -1
+  moveDirection: -1
+  maxDistance: 16
+  currentDistance: 0
+  direction: 0
+  rb: {fileID: 0}
 --- !u!50 &337625952
 Rigidbody2D:
   serializedVersion: 4
