@@ -125,7 +125,6 @@ public class CatMovement : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-       // if (other.CompareTag("Ground")) isGrounded = false;
     }
 
     void ResetPosition()
